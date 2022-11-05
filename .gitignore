@@ -1,0 +1,5 @@
+.venv/
+dist/
+.DS_Store
+gendiff/.DS_Store
+gendiff/scripts/__pycache__

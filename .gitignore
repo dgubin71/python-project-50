@@ -3,3 +3,7 @@ dist/
 .DS_Store
 gendiff/.DS_Store
 gendiff/scripts/__pycache__
+file1.json
+File2.json
+__pycache__/
+gendiff/__pycache__/

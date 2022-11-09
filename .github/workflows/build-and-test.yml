@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Lint with flake8
-        run: |
-          flake8
+ #   - name: Lint with flake8
+ #       run: |
+ #         flake8
 
-    - name: Test with pytest
-        run: |
-          pytest
+ #   - name: Test with pytest
+ #      run: |
+ #         pytest
       
   

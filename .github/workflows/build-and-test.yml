@@ -2,21 +2,17 @@ name: build-and-test
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ master]
  
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+runs-on: ubuntu-latest
     steps:
- #   - name: Lint with flake8
- #       run: |
- #         flake8
+      - uses: actions/checkout@v2
 
- #   - name: Test with pytest
- #      run: |
- #         pytest
-      
+      - name: Hexlet project check
+        uses: hexlet/project-action@release
+        with:
+          hexlet-id: ${{ secrets.HEXLET_ID }}
   

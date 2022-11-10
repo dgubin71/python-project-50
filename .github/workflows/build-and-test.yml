@@ -20,7 +20,7 @@ jobs:
     - name: PyTest
       run: |
           pip install pytest
-          make start-test
+          make start-tests
 
     - name: Run flake8
       run: |

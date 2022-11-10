@@ -26,13 +26,11 @@ jobs:
       run: |
         pip install flake8
         make lint
+    - name: Run pytest
+      run: |
+        make test-coverage
 
     - name: Test & publish code coverage
-      uses: paambaati/codeclimate-action@v2.7.4
-      if: github.ref_name == 'main'
+      uses: paambaati/codeclimate-action@v3.0.0
       env:
-          CC_TEST_REPORTER_ID: a7274d141a800127c53ee9b3eaacb0a2296b3ec89b6ab65b9accbcd8a1f5c2f0
-      with:
-        coverageCommand: make test-coverage
-        debug: true
-
+        CC_TEST_REPORTER_ID: a7274d141a800127c53ee9b3eaacb0a2296b3ec89b6ab65b9accbcd8af01f5c2

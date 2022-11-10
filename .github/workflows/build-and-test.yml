@@ -4,7 +4,7 @@ on:
   - push
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -19,6 +19,9 @@ jobs:
       run: |
           pip install poetry
           make install
+          make build
+          make publish
+          make package-install
     - name: Run flake8
       run: |
         make lint

@@ -20,6 +20,7 @@ jobs:
     - name: PyTest
       run: |
           pip install pytest
+          pip install pytest-cov
           make start-tests
 
     - name: Run flake8

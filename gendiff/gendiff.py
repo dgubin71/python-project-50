@@ -1,48 +1,10 @@
-import json
-
-
-def bool_to_text(var):
-    if isinstance(var, bool):
-        if var:
-            return 'true'
-        else:
-            return 'false'
-    return var
-
-
+from gendiff.parsers import diff_json
+from gendiff.parsers import diff_yaml
 def generate_diff(path_file1, path_file2):
-    dict_1 = json.load(open(path_file1))
-    dict_2 = json.load(open(path_file2))
 
-    dict_to_str = '{' + '\n'
-    key1_lst = []
-    key2_lst = []
-
-    key1_lst = list(dict_1.keys())
-    key2_lst = list(dict_2.keys())
-
-    key1_lst = key1_lst + key2_lst
-    key1_lst = list(set(key1_lst))
-    key1_lst.sort()
-    for key in key1_lst:
-        if dict_2.get(key, '-') != '-':
-            if dict_2.get(key) == dict_1.get(key):
-                dict_to_str = dict_to_str \
-                    + '   ' + key + ': ' + \
-                    str(bool_to_text(dict_1.get(key))) + '\n'
-            else:
-                if dict_1.get(key, 'none') != 'none':
-                    dict_to_str = dict_to_str \
-                        + ' - ' + key + ': ' \
-                        + str(bool_to_text(dict_1.get(key))) + '\n' + \
-                        ' + ' + key + ': ' + \
-                        str(bool_to_text(dict_2.get(key))) + '\n'
-                else:
-                    dict_to_str = dict_to_str + ' + ' \
-                        + key + ': ' + str(bool_to_text(dict_2.get(key))) + '\n'
-        else:
-            dict_to_str = dict_to_str + ' - ' + key + ': ' \
-                + str(bool_to_text(dict_1.get(key))) + '\n'
-
-    dict_to_str = dict_to_str + '}'
-    return dict_to_str
+    if  (path_file1.find('.json',-5) != -1) and  (path_file2.find('.json',-5)  != -1):
+        return (diff_json.generate_diff_json(path_file1, path_file2))
+    if  path_file1.find('.yaml',-5) != -1 and  path_file2.find('.yaml',-5)  != -1:
+        return(diff_yaml.generate_diff_yaml(path_file1, path_file2))
+    if  path_file1.find('.yml',-4) != -1 and  path_file2.find('.yml',-4)  != -1:
+         return (diff_yaml.generate_diff_yaml(path_file1, path_file2))

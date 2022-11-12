@@ -1,3 +1,4 @@
+./tests/fixture : file2.yaml 
 timeout : 20
 verbose : true
 host: hexlet.io

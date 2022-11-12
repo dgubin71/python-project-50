@@ -1,4 +1,4 @@
-teinstall:  #  create environment variables and dependencies
+install:  #  create environment variables and dependencies
 	poetry install
 
 gendiff:  # run application

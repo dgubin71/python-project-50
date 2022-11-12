@@ -7,7 +7,7 @@ def bool_to_text(var):
     return var
 
 
-def  diff_report_create (dict_1, dict_2):
+def diff_report_create(dict_1, dict_2):
     dict_to_str = '{' + '\n'
     key1_lst = []
     key2_lst = []
@@ -40,4 +40,3 @@ def  diff_report_create (dict_1, dict_2):
 
     dict_to_str = dict_to_str + '}'
     return dict_to_str
-
